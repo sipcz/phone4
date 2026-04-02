@@ -61,7 +61,7 @@ window.onbeforeunload = () => {
 
 // --- МЕРЕЖА ---
 function initWS() {
-    ws = new WebSocket("wss://phone-ob0c.onrender.com");
+    ws = new WebSocket("wss://phone4.onrender.com");
     ws.onopen = () => ws.send(JSON.stringify({type: "register", number: localStorage.getItem("my_id")}));
     ws.onclose = () => setTimeout(initWS, 3000);
     ws.onmessage = async (e) => {
