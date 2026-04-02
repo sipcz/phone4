@@ -1,0 +1,38 @@
+:root { 
+    --bg: #050604; --neon: #39FF14; --border: #2a3020; --glass: rgba(15, 18, 12, 0.98); --red: #ff3b30;
+}
+
+body { background: var(--bg); color: #a1b57d; font-family: 'Courier New', monospace; margin: 0; display: flex; justify-content: center; align-items: center; height: 100dvh; overflow: hidden; padding-bottom: env(safe-area-inset-bottom); }
+
+.app-card { background: var(--glass); width: 95vw; max-width: 380px; height: calc(100dvh - 16px); border: 2px solid var(--border); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; position: relative; z-index: 100; box-shadow: inset 0 0 30px #000; margin: 8px; }
+
+/* ЗБІЛЬШЕННЯ ID */
+.header { padding: 15px; background: #000; border-bottom: 2px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.id-tag { font-size: 14px; color: #5c664d; }
+.green-large { color: var(--neon); font-size: 24px; font-weight: bold; text-shadow: 0 0 10px var(--neon); margin-left: 5px; }
+
+.viz-fixed { height: 75px; background: #080906; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; padding: 5px 12px; flex-shrink: 0; }
+.v-row { display: flex; align-items: center; gap: 10px; margin: 2px 0; font-size: 8px; color: #5c664d; }
+canvas { flex: 1; height: 22px; background: #000; border: 1px solid #14160f; }
+
+.call-zone { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.chat-viewport { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 12px; background: #070806; scroll-behavior: smooth; }
+
+.msg { padding: 10px 14px; border-radius: 8px; font-size: 14px; max-width: 85%; word-wrap: break-word; }
+.self { align-self: flex-end; background: #1a2e0b; color: #fff; border-left: 3px solid var(--neon); }
+.peer { align-self: flex-start; background: #151812; border-left: 3px solid #333; }
+
+.input-panel { padding: 10px; background: #000; display: flex; gap: 8px; border-top: 1px solid var(--border); flex-shrink: 0; }
+.btn-icon { background: #1a1d15; border: 1px solid var(--border); color: var(--neon); padding: 12px; border-radius: 8px; cursor: pointer; }
+.input-panel input { flex: 1; background: #0a0b08; border: 1px solid var(--border); color: var(--neon); padding: 10px; border-radius: 8px; outline: none; font-family: inherit; }
+
+.tactical-controls { padding: 10px 10px 15px 10px; display: flex; flex-direction: column; gap: 8px; background: #000; flex-shrink: 0; }
+.btn-sub { background: #1a1d15; color: #a1b57d; border: 1px solid var(--border); padding: 12px; border-radius: 8px; cursor: pointer; font-size: 12px; }
+.btn-danger { background: #451a1a; color: #fff; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+.btn-main { background: #1a2e0b; color: #fff; border: 1px solid var(--neon); padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+
+.overlay { position: fixed; inset: 0; background: var(--bg); z-index: 999; display: flex; justify-content: center; align-items: center; }
+.box { background: #0a0b08; padding: 35px; border: 1px solid var(--border); text-align: center; border-radius: 12px; width: 290px; box-shadow: 0 0 30px #000; }
+.hidden { display: none !important; }
+.blink-red { animation: blr 1s infinite; color: var(--red); font-weight: bold; font-size: 18px; }
+@keyframes blr { 50% { opacity: 0.4; } }

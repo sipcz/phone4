@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DRESDEN LINK-GUARD v16.5</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+<div class="scanlines"></div>
+
+<div id="loginScreen" class="overlay">
+    <div class="box login-box">
+        <div class="drone-logo">TRANSC DRESDEN [V16.5]</div>
+        <input type="password" id="passInput" placeholder="ENTER SYSTEM KEY" autocomplete="off">
+        <button id="startBtn" class="btn-main">INITIALIZE SYSTEM</button>
+    </div>
+</div>
+
+<div id="mainApp" class="app-card hidden">
+    <div class="header">
+        <div class="id-tag">UNIT ID: <span id="myNum" class="green-large">...</span></div>
+        <div id="status" class="blink">STANDBY</div>
+    </div>
+
+    <div id="vizContainer" class="viz-fixed hidden">
+        <div class="v-row"><span>LOC:</span><canvas id="localViz"></canvas></div>
+        <div class="v-row"><span>REM:</span><canvas id="remoteViz"></canvas></div>
+    </div>
+
+    <div id="dialerUI" class="center-ui">
+        <div class="info-tag">AWAITING TARGET ID</div>
+        <input type="number" id="targetNum" placeholder="TARGET_ID">
+        <button id="callBtn" class="btn-main pulse">ESTABLISH LINK</button>
+    </div>
+
+    <div id="activeCallUI" class="hidden call-zone">
+        <div id="chatMessages" class="chat-viewport"></div>
+        <div id="fileProgress" class="prog-overlay hidden">
+            <div id="progBar" class="prog-fill"></div>
+            <span id="progText">SYNCING...</span>
+        </div>
+        <div class="input-panel">
+            <button id="photoBtn" class="btn-icon">📎</button>
+            <input type="text" id="msgInput" placeholder="ENCRYPTED MSG..." autocomplete="off">
+            <button id="sendBtn" class="btn-icon">➤</button>
+        </div>
+        <div class="tactical-controls">
+            <button id="muteBtn" class="btn-sub">🎙 MIC: ON</button>
+            <button id="hangBtn" class="btn-danger">TERMINATE LINK</button>
+        </div>
+    </div>
+</div>
+
+<div id="lostLinkUI" class="overlay hidden">
+    <div class="box alert-box">
+        <div class="blink-red">⚠️ SIGNAL LOST</div>
+        <div style="font-size: 12px; margin: 15px 0;">Абонент вийшов з мережі або зв'язок перервано</div>
+        <button onclick="location.reload()" class="btn-main">REBOOT TERMINAL</button>
+    </div>
+</div>
+
+<div id="incomingUI" class="overlay hidden">
+    <div class="box alert-box">
+        <div class="blink-red">INCOMING SIGNAL</div>
+        <h1 id="callerId" class="green">...</h1>
+        <div class="btn-row">
+            <button id="acceptBtn" class="btn-main">ACCEPT</button>
+            <button id="declineBtn" class="btn-danger">IGNORE</button>
+        </div>
+    </div>
+</div>
+
+<input type="file" id="fileInp" style="display:none" accept="image/*">
+<audio id="audio" autoplay playsinline></audio>
+<script src="script.js"></script>
+</body>
+</html>
